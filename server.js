@@ -21,10 +21,11 @@ for (const envVar of requiredEnvVars) {
     process.exit(1);
   }
 }
-
 app.use(cors({
-  origin: process.env.CORS_ORIGIN,
+  origin: 'https://astroalert-one.vercel.app', 
   credentials: true,
+  methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization", "Accept"],
 }));
 
 app.use(express.json());
